@@ -13,19 +13,19 @@ jobs:
       - name: Begin CI...
         uses: actions/checkout@v2
 
-      - name: Use Node 16
+      - name: Use Node 22
         uses: actions/setup-node@v1
         with:
-          node-version: 16.x
+          node-version: 22.x
           registry-url: https://registry.npmjs.org
 
-      - name: NPM Publish
-        run: |
-          if [ -e package-lock.json ]; then
-          npm ci
-          else
-          npm i
-          fi
-          npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+      # - name: NPM Publish
+      #   run: |
+      #     if [ -e package-lock.json ]; then
+      #     npm ci
+      #     else
+      #     npm i
+      #     fi
+      #     npm publish --access public
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
